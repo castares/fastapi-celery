@@ -4,17 +4,17 @@ version = "0.1.0"
 description = ""
 authors = ["César Castañón <cesar.castanon@piperlab.es>"]
 readme = "README.md"
-packages = [{include = "fastapi_celery"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "0.79.0,"
-uvicorn = {version = "0.18.2", extras = ["standard"]}
+uvicorn = {version = "0.20.0", extras = ["standard"]}
 celery = "5.2.7"
 redis = "4.3.4"
 flower = "1.2.0"
 SQLAlchemy = "1.4.40"
 alembic = "1.8.1"
+psycopg2-binary = "2.9.3"
 
 [build-system]
 requires = ["poetry-core"]
