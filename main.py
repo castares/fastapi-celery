@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from app.celery import create_celery
-from app.users.routes import users_router
+from app.users.views import users_router
 
 
 def create_app() -> FastAPI:

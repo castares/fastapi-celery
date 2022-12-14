@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 WORKDIR /opt
 
 
-COPY pyproject.toml poetry.lock .
+COPY pyproject.toml poetry.lock ./
 RUN pip install --upgrade pip \
   && pip install "poetry==1.2.2"
 RUN poetry config virtualenvs.in-project true \ 
@@ -31,8 +31,6 @@ RUN apt-get update \
 COPY --from=builder /opt/.venv/ /opt/.venv/
 
 ENV PATH=/opt/.venv/bin:$PATH
-ENV VENV_PATH=/opt/.venv/
-# ADD . /home/app # Uncomment to include code
 
 COPY ./compose/local/fastapi/entrypoint /entrypoint
 RUN sed -i 's/\r$//g' /entrypoint
