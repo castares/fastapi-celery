@@ -45,3 +45,12 @@ def task_postrun_handler(task_id, **kwargs):
     from app.ws.views import update_celery_task_status
 
     async_to_sync(update_celery_task_status)(task_id)
+
+    from app.ws.views import update_celery_task_status_socketio
+
+    update_celery_task_status_socketio(task_id)
+
+
+@shared_task(name="task_schedule_work")
+def task_schedule_work():
+    logger.info("task_schedule_work_run")

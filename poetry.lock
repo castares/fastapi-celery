@@ -1,4 +1,19 @@
 [[package]]
+name = "aioredis"
+version = "2.0.1"
+description = "asyncio (PEP 3156) Redis support"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+async-timeout = "*"
+typing-extensions = "*"
+
+[package.extras]
+hiredis = ["hiredis (>=1.0)"]
+
+[[package]]
 name = "alembic"
 version = "1.8.1"
 description = "A database migration tool for SQLAlchemy."
@@ -70,6 +85,14 @@ python-versions = ">=3.6"
 
 [package.extras]
 hiredis = ["hiredis"]
+
+[[package]]
+name = "bidict"
+version = "0.22.0"
+description = "The bidirectional mapping library for Python."
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "billiard"
@@ -461,6 +484,34 @@ python-versions = ">=3.7"
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "python-engineio"
+version = "4.3.4"
+description = "Engine.IO server and client for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+asyncio-client = ["aiohttp (>=3.4)"]
+client = ["requests (>=2.21.0)", "websocket-client (>=0.54.0)"]
+
+[[package]]
+name = "python-socketio"
+version = "5.7.2"
+description = "Socket.IO server and client for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+bidict = ">=0.21.0"
+python-engineio = ">=4.3.0"
+
+[package.extras]
+asyncio-client = ["aiohttp (>=3.4)"]
+client = ["requests (>=2.21.0)", "websocket-client (>=0.54.0)"]
+
+[[package]]
 name = "pytz"
 version = "2022.5"
 description = "World timezone definitions, modern and historical"
@@ -683,9 +734,13 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "9adecc15f941f8908c8c2d95f4daba84bc1802a0b4ce227ff68ca5cb01dfbd4f"
+content-hash = "c66877122774123f906aab7912f76b7f99d967f16489c386301860c6b1265915"
 
 [metadata.files]
+aioredis = [
+    {file = "aioredis-2.0.1-py3-none-any.whl", hash = "sha256:9ac0d0b3b485d293b8ca1987e6de8658d7dafcca1cddfcd1d506cae8cdebfdd6"},
+    {file = "aioredis-2.0.1.tar.gz", hash = "sha256:eaa51aaf993f2d71f54b70527c440437ba65340588afeb786cd87c55c89cd98e"},
+]
 alembic = [
     {file = "alembic-1.8.1-py3-none-any.whl", hash = "sha256:0a024d7f2de88d738d7395ff866997314c837be6104e90c5724350313dee4da4"},
     {file = "alembic-1.8.1.tar.gz", hash = "sha256:cd0b5e45b14b706426b833f06369b9a6d5ee03f826ec3238723ce8caaf6e5ffa"},
@@ -709,6 +764,10 @@ async-timeout = [
 asyncio-redis = [
     {file = "asyncio_redis-0.16.0-py2.py3-none-any.whl", hash = "sha256:4a134fde5ea3628ff0c7118e2424b0f26140a1bd21d5e4632058f1f662773686"},
     {file = "asyncio_redis-0.16.0.tar.gz", hash = "sha256:ff8ce4e7e22a08e2688ae6b397aeac355473e343ce3c68ae3b713494318d848b"},
+]
+bidict = [
+    {file = "bidict-0.22.0-py3-none-any.whl", hash = "sha256:415126d23a0c81e1a8c584a8fb1f6905ea090c772571803aeee0a2242e8e7ba0"},
+    {file = "bidict-0.22.0.tar.gz", hash = "sha256:5c826b3e15e97cc6e615de295756847c282a79b79c5430d3bfc909b1ac9f5bd8"},
 ]
 billiard = [
     {file = "billiard-3.6.4.0-py3-none-any.whl", hash = "sha256:87103ea78fa6ab4d5c751c4909bcff74617d985de7fa8b672cf8618afd5a875b"},
@@ -1046,6 +1105,14 @@ pyparsing = [
 python-dotenv = [
     {file = "python-dotenv-0.21.0.tar.gz", hash = "sha256:b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045"},
     {file = "python_dotenv-0.21.0-py3-none-any.whl", hash = "sha256:1684eb44636dd462b66c3ee016599815514527ad99965de77f43e0944634a7e5"},
+]
+python-engineio = [
+    {file = "python-engineio-4.3.4.tar.gz", hash = "sha256:d8d8b072799c36cadcdcc2b40d2a560ce09797ab3d2d596b2ad519a5e4df19ae"},
+    {file = "python_engineio-4.3.4-py3-none-any.whl", hash = "sha256:7454314a529bba20e745928601ffeaf101c1b5aca9a6c4e48ad397803d10ea0c"},
+]
+python-socketio = [
+    {file = "python-socketio-5.7.2.tar.gz", hash = "sha256:92395062d9db3c13d30e7cdedaa0e1330bba78505645db695415f9a3c628d097"},
+    {file = "python_socketio-5.7.2-py3-none-any.whl", hash = "sha256:d9a9f047e6fdd306c852fbac36516f4b495c2096f8ad9ceb8803b8e5ff5622e3"},
 ]
 pytz = [
     {file = "pytz-2022.5-py2.py3-none-any.whl", hash = "sha256:335ab46900b1465e714b4fda4963d87363264eb662aab5e65da039c25f1f5b22"},

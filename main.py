@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from app.broadcast_utils import broadcast
 from app.celery_utils import create_celery
 from app.users.views import users_router
-from app.ws.views import ws_router
+from app.ws.views import ws_router, register_socketio_app
 
 
 def create_app() -> FastAPI:
@@ -11,6 +11,8 @@ def create_app() -> FastAPI:
 
     app.include_router(users_router)
     app.include_router(ws_router)
+
+    register_socketio_app(app)
 
     @app.on_event("startup")
     async def startup_event():
